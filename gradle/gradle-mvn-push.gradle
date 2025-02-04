@@ -82,16 +82,18 @@ def configurePom(pom) {
 afterEvaluate { project ->
     publishing {
         repositories {
-            maven {
-                def releasesRepoUrl = getReleaseRepositoryUrl()
-                def snapshotsRepoUrl = getSnapshotRepositoryUrl()
-                url = isReleaseBuild() ? releasesRepoUrl : snapshotsRepoUrl
+//            maven {
+//                def releasesRepoUrl = getReleaseRepositoryUrl()
+//                def snapshotsRepoUrl = getSnapshotRepositoryUrl()
+//                url = isReleaseBuild() ? releasesRepoUrl : snapshotsRepoUrl
+//
+//                credentials(PasswordCredentials) {
+//                    username = getRepositoryUsername()
+//                    password = getRepositoryPassword()
+//                }
+//            }
 
-                credentials(PasswordCredentials) {
-                    username = getRepositoryUsername()
-                    password = getRepositoryPassword()
-                }
-            }
+            mavenLocal()
         }
     }
 
